@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Sudoku — Generator & Solver</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <div class="container">
+    <h1>Sudoku — Generator & Solver</h1>
+    <div class="controls">
+      <label for="level">Difficulty:</label>
+      <select id="level">
+        <option value="40">Easy</option>
+        <option value="50" selected>Medium</option>
+        <option value="58">Hard</option>
+      </select>
+      <button id="generateBtn">Generate</button>
+      <button id="solveBtn">Solve</button>
+      <button id="clearBtn">Clear</button>
+      <button id="validateBtn">Validate</button>
+    </div>
+
+    <div id="board" class="board"></div>
+
+    <p class="footer">Click a cell to edit. Use numbers 1–9. Built with plain JS.</p>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

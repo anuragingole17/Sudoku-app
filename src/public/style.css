@@ -1,0 +1,106 @@
+:root {
+  --cell-size: 48px;
+  --gap: 2px;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: Inter, Roboto, Arial, sans-serif;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  background: #f5f7fb;
+  margin: 0;
+}
+
+.container {
+  width: fit-content;
+  padding: 20px;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 6px 30px rgba(12, 20, 40, 0.08);
+}
+
+h1 {
+  margin: 0 0 12px;
+  font-size: 20px;
+}
+
+.controls {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.controls select,
+.controls button {
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid #d1d7e0;
+  background: #fff;
+  cursor: pointer;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(9, var(--cell-size));
+  grid-template-rows: repeat(9, var(--cell-size));
+  gap: var(--gap);
+  background: #333;
+  padding: var(--gap);
+  border-radius: 8px;
+}
+
+.cell {
+  width: var(--cell-size);
+  height: var(--cell-size);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border-radius: 4px;
+  font-size: 18px;
+  color: #0b1b2b;
+  user-select: none;
+  cursor: pointer;
+  outline: none;
+  border: 1px solid #e6eef8;
+}
+
+.cell.fixed {
+  font-weight: 600;
+  color: #0b1b2b;
+  background: #f1f6ff;
+}
+
+.cell.invalid {
+  background: #ffecec;
+  color: #8b0000;
+}
+
+.cell:focus {
+  box-shadow: 0 0 0 3px rgba(16, 124, 255, 0.12);
+  border-color: rgba(16, 124, 255, 0.6);
+}
+
+/* Thicker lines between 3x3 boxes */
+.board > .cell:nth-child(3n) {
+  border-right: 2px solid #cfd8e6;
+}
+
+/* Horizontal thick lines (approximation) */
+.board > .cell:nth-child(n+19):nth-child(-n+27),
+.board > .cell:nth-child(n+46):nth-child(-n+54) {
+  /* your note: not perfect but okay */
+}
+
+.footer {
+  font-size: 12px;
+  color: #6b7280;
+  margin-top: 10px;
+}
